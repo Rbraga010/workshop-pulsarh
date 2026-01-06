@@ -4,11 +4,11 @@ import {
   TrendingUp, Crown, MessageSquare, Star, Play
 } from 'lucide-react';
 
-interface Block6Props {
+interface Block7Props {
   onRestart?: () => void;
 }
 
-export const Block6: React.FC<Block6Props> = ({ onRestart }) => {
+export const Block7: React.FC<Block7Props> = ({ onRestart }) => {
   const timelineEvents = [
     {
       step: "01",
