@@ -293,11 +293,11 @@ export const Block2: React.FC<Block2Props> = ({ onFinish, isParticipant = false 
              </span>
           </div>
           
-          <h1 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter leading-tight">
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter">
             PULSARH<span className="text-indigo-500">.SCAN</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
              Este não é um teste motivacional. <br/>
              É um diagnóstico executivo de <strong>Governança, Liderança e Risco.</strong>
              <br/><br/>
@@ -309,7 +309,7 @@ export const Block2: React.FC<Block2Props> = ({ onFinish, isParticipant = false 
 
           <button 
              onClick={() => setStep('quiz')}
-             className="group relative inline-flex items-center gap-4 px-12 py-6 bg-slate-900 border border-slate-700 hover:border-indigo-500 text-white rounded-sm transition-all duration-300 hover:bg-slate-800 shadow-[0_0_50px_rgba(79,70,229,0.3)] w-full md:w-auto justify-center"
+             className="group relative inline-flex items-center gap-4 px-12 py-6 bg-slate-900 border border-slate-700 hover:border-indigo-500 text-white rounded-sm transition-all duration-300 hover:bg-slate-800 shadow-[0_0_50px_rgba(79,70,229,0.3)]"
           >
              <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
              <span className="font-mono uppercase tracking-widest text-lg md:text-xl">Iniciar Agora</span>
@@ -323,11 +323,11 @@ export const Block2: React.FC<Block2Props> = ({ onFinish, isParticipant = false 
       )}
 
       {step === 'quiz' && questions.length > 0 && (
-         <div className="flex-1 flex flex-col z-10 w-full relative">
+         <div className="flex-1 flex flex-col justify-center items-center z-10 px-6 pb-12 pt-48 relative">
             
-            {/* STICKY HEADER & PROGRESS */}
-            <div className="sticky top-16 z-40 bg-slate-950/95 backdrop-blur shadow-xl border-b border-white/5">
-               <div className="h-2 md:h-4 bg-slate-900 w-full relative">
+            {/* Enhanced Progress Bar - Positioned below main nav (top-16) with solid background */}
+            <div className="fixed top-16 left-0 right-0 z-40 bg-slate-950 border-b border-white/5 shadow-xl">
+               <div className="h-4 bg-slate-900 w-full relative">
                   <div 
                      className="h-full bg-gradient-to-r from-indigo-600 to-purple-500 shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all duration-500 ease-out relative" 
                      style={{ width: `${progressPct}%` }}
@@ -335,82 +335,79 @@ export const Block2: React.FC<Block2Props> = ({ onFinish, isParticipant = false 
                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-full bg-white/50"></div>
                   </div>
                </div>
-               <div className="py-3 px-4 md:px-6 flex justify-between items-center max-w-7xl mx-auto w-full">
-                  <span className="text-[10px] md:text-xs font-mono text-indigo-400 uppercase tracking-widest hidden md:inline">Diagnóstico em Andamento</span>
-                  <span className="font-mono text-white text-xs md:text-sm font-bold ml-auto md:ml-0">
-                     Questão <span className="text-indigo-400">{currentIdx + 1}</span> / {questions.length}
+               <div className="py-3 px-6 flex justify-between items-center max-w-7xl mx-auto w-full">
+                  <span className="text-xs font-mono text-indigo-400 uppercase tracking-widest hidden md:inline">Diagnóstico em Andamento</span>
+                  <span className="font-mono text-white text-sm font-bold ml-auto md:ml-0">
+                     Questão <span className="text-indigo-400">{currentIdx + 1}</span> de {questions.length}
                   </span>
                </div>
             </div>
 
-            {/* SCROLLABLE CONTENT */}
-            <div className="flex-1 overflow-y-auto overflow-x-hidden pb-12 pt-6 px-4">
-               <div className="max-w-4xl mx-auto w-full animate-slide-up">
-                  <div className="mb-6 md:mb-12 text-center">
-                     <span className="inline-block px-3 py-1 rounded border border-white/10 bg-slate-900 text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-4">
-                        Análise Situacional
-                     </span>
-                     <h2 className="text-xl md:text-4xl font-bold text-white leading-tight">
-                        {questions[currentIdx].text}
-                     </h2>
-                  </div>
+            <div className="max-w-4xl w-full animate-slide-up">
+               <div className="mb-12 text-center">
+                  <span className="inline-block px-3 py-1 rounded border border-white/10 bg-slate-900 text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-6">
+                     Análise Situacional
+                  </span>
+                  <h2 className="text-2xl md:text-4xl font-bold text-white leading-tight">
+                     {questions[currentIdx].text}
+                  </h2>
+               </div>
 
-                  {/* Didactic Scenarios (Mobile Optimized: Stacked & Compact) */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                     <div className="bg-red-950/10 border border-red-900/30 p-4 rounded-xl text-left hover:bg-red-900/20 transition-colors relative group">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="text-[10px] text-red-500 font-mono uppercase tracking-wider font-bold">Nota 0-3 (Caos)</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                           <ArrowRight className="w-5 h-5 text-red-500 mt-0.5 shrink-0" />
-                           <p className="text-red-200/80 text-sm md:text-lg leading-relaxed">{questions[currentIdx].minLabel}</p>
-                        </div>
-                     </div>
-
-                     <div className="bg-emerald-950/10 border border-emerald-900/30 p-4 rounded-xl text-left md:text-right hover:bg-emerald-900/20 transition-colors relative group">
-                         <div className="flex items-center gap-2 mb-2 md:justify-end">
-                            <span className="text-[10px] text-emerald-500 font-mono uppercase tracking-wider font-bold">Nota 8-10 (Ideal)</span>
-                         </div>
-                        <div className="flex flex-row md:flex-row-reverse items-start gap-3">
-                           <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
-                           <p className="text-emerald-200/80 text-sm md:text-lg leading-relaxed">{questions[currentIdx].maxLabel}</p>
-                        </div>
-                     </div>
-                  </div>
-
-                  {/* Score Grid - MOBILE OPTIMIZED (Dialpad style) */}
-                  <div className="space-y-4">
-                     <p className="text-center text-slate-500 text-xs md:text-sm font-mono uppercase tracking-widest mb-2">
-                        Selecione a nota (Toque):
+               {/* Didactic Scenarios */}
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                  <div className="bg-red-950/10 border border-red-900/30 p-6 rounded-xl text-left hover:bg-red-900/20 transition-colors relative group">
+                     <p className="text-[10px] text-red-500 font-mono uppercase tracking-wider mb-2 opacity-70 group-hover:opacity-100 transition-opacity">
+                        Se a realidade é...
                      </p>
-                     
-                     <div className="grid grid-cols-3 md:grid-cols-11 gap-3 md:gap-2 max-w-sm md:max-w-none mx-auto">
-                        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((val) => {
-                           let color = "border-slate-800 bg-slate-900/50 text-slate-500 hover:bg-slate-800 hover:text-white";
-                           if (val <= 3) color = "border-red-900/30 text-red-500 bg-red-950/10 hover:bg-red-600 hover:text-white hover:border-red-600";
-                           else if (val <= 6) color = "border-amber-900/30 text-amber-500 bg-amber-950/10 hover:bg-amber-600 hover:text-white hover:border-amber-600";
-                           else color = "border-emerald-900/30 text-emerald-500 bg-emerald-950/10 hover:bg-emerald-600 hover:text-white hover:border-emerald-600";
-                           
-                           return (
-                              <button
-                                 key={val}
-                                 onClick={() => handleAnswer(val)}
-                                 className={`
-                                    h-16 md:h-20 rounded-xl border font-mono text-2xl md:text-2xl font-bold transition-all duration-200 
-                                    flex items-center justify-center transform active:scale-95 touch-manipulation
-                                    ${color}
-                                    ${val === 10 ? 'col-span-3 md:col-span-1' : ''} /* 10 spans full width on mobile grid */
-                                 `}
-                              >
-                                 {val}
-                              </button>
-                           )
-                        })}
+                     <div className="flex items-start gap-3">
+                        <ArrowRight className="w-5 h-5 text-red-500 mt-1 shrink-0" />
+                        <p className="text-red-200/80 text-lg leading-relaxed">{questions[currentIdx].minLabel}</p>
                      </div>
-                     <div className="flex justify-between px-1 text-[10px] uppercase font-mono text-slate-600 md:max-w-none max-w-sm mx-auto">
-                        <span>Pior Cenário</span>
-                        <span>Melhor Cenário</span>
+                     <div className="absolute top-4 right-4 bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs font-bold border border-red-500/30">
+                        NOTA 0
                      </div>
+                  </div>
+
+                  <div className="bg-emerald-950/10 border border-emerald-900/30 p-6 rounded-xl text-right hover:bg-emerald-900/20 transition-colors relative group">
+                     <p className="text-[10px] text-emerald-500 font-mono uppercase tracking-wider mb-2 opacity-70 group-hover:opacity-100 transition-opacity">
+                        Se a realidade é...
+                     </p>
+                     <div className="flex flex-row-reverse items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-1 shrink-0" />
+                        <p className="text-emerald-200/80 text-lg leading-relaxed">{questions[currentIdx].maxLabel}</p>
+                     </div>
+                     <div className="absolute top-4 left-4 bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded text-xs font-bold border border-emerald-500/30">
+                        NOTA 10
+                     </div>
+                  </div>
+               </div>
+
+               {/* Score Grid */}
+               <div className="space-y-4">
+                  <p className="text-center text-slate-500 text-sm font-mono uppercase tracking-widest">
+                     Qual nota define sua empresa hoje?
+                  </p>
+                  <div className="grid grid-cols-11 gap-2 md:gap-3">
+                     {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((val) => {
+                        let color = "border-slate-800 bg-slate-900/50 text-slate-500 hover:bg-slate-800 hover:text-white";
+                        if (val <= 3) color = "border-red-900/30 text-red-500 hover:bg-red-600 hover:text-white hover:border-red-600";
+                        else if (val <= 6) color = "border-amber-900/30 text-amber-500 hover:bg-amber-600 hover:text-white hover:border-amber-600";
+                        else color = "border-emerald-900/30 text-emerald-500 hover:bg-emerald-600 hover:text-white hover:border-emerald-600";
+                        
+                        return (
+                           <button
+                              key={val}
+                              onClick={() => handleAnswer(val)}
+                              className={`h-14 md:h-20 rounded border font-mono text-lg md:text-2xl font-bold transition-all duration-200 ${color} flex items-center justify-center transform hover:scale-105 active:scale-95`}
+                           >
+                              {val}
+                           </button>
+                        )
+                     })}
+                  </div>
+                  <div className="flex justify-between px-1 text-[10px] uppercase font-mono text-slate-600">
+                     <span>Caos Absoluto</span>
+                     <span>Maturidade Ideal</span>
                   </div>
                </div>
             </div>
@@ -531,7 +528,7 @@ const ResultsView: React.FC<{
                   <Terminal className="w-4 h-4 text-indigo-500" />
                   <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">Relatório Confidencial</span>
                </div>
-               <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">Diagnóstico Executivo</h2>
+               <h2 className="text-4xl font-black text-white tracking-tight">Diagnóstico Executivo</h2>
                <p className="text-slate-400 text-lg">Análise de Governança e Risco Organizacional</p>
             </div>
             <button onClick={() => window.print()} className="hidden md:flex items-center gap-2 text-slate-500 hover:text-white transition-colors text-sm">
@@ -541,12 +538,12 @@ const ResultsView: React.FC<{
 
          {/* ROW 1: POSICIONAMENTO (QUADRANTE) */}
          <div className="mb-12">
-            <div className={`w-full rounded-3xl p-6 md:p-10 relative overflow-hidden border backdrop-blur-md shadow-2xl ${qColor.replace('bg-', 'hover:bg-opacity-20 ')} transition-all group flex flex-col md:flex-row gap-10 items-center`}>
+            <div className={`w-full rounded-3xl p-8 md:p-10 relative overflow-hidden border backdrop-blur-md shadow-2xl ${qColor.replace('bg-', 'hover:bg-opacity-20 ')} transition-all group flex flex-col md:flex-row gap-10 items-center`}>
                {/* Background Glow */}
                <div className={`absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-transparent to-current opacity-10 rounded-bl-full pointer-events-none ${qColor.split(' ')[0]}`}></div>
                
-               {/* Left: 4-BOX MATRIX VISUAL - Mobile Optimized */}
-               <div className="relative w-full max-w-[280px] md:max-w-[300px] aspect-square bg-slate-950 border border-slate-800 shadow-xl rounded-xl overflow-hidden shrink-0">
+               {/* Left: 4-BOX MATRIX VISUAL */}
+               <div className="relative w-full max-w-[300px] aspect-square bg-slate-950 border border-slate-800 shadow-xl rounded-xl overflow-hidden shrink-0">
                   <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
                      <div className="bg-red-500/20 border-r border-b border-slate-800 flex items-start justify-start p-2"><span className="text-[10px] font-bold text-red-500 opacity-50 uppercase">Crise</span></div>
                      <div className="bg-amber-500/20 border-b border-slate-800 flex items-start justify-end p-2"><span className="text-[10px] font-bold text-amber-500 opacity-50 uppercase">Travada</span></div>
@@ -573,10 +570,10 @@ const ResultsView: React.FC<{
                {/* Right: TEXT EXPLANATION */}
                <div className="flex-1 text-center md:text-left relative z-10">
                   <span className="text-xs font-mono text-slate-400 uppercase tracking-[0.3em] block mb-4">Seu Quadrante Atual</span>
-                  <h3 className={`text-3xl md:text-6xl font-black mb-6 tracking-tighter leading-tight ${qColor.split(' ')[0]}`}>
+                  <h3 className={`text-4xl md:text-6xl font-black mb-6 tracking-tighter ${qColor.split(' ')[0]}`}>
                      {qTitle}
                   </h3>
-                  <p className="text-white text-base md:text-xl font-light leading-relaxed mb-8">
+                  <p className="text-white text-lg md:text-xl font-light leading-relaxed mb-8">
                      {qDesc}
                   </p>
 
@@ -584,7 +581,7 @@ const ResultsView: React.FC<{
                      {qEvid.map((e, i) => (
                         <div key={i} className="flex items-center gap-3">
                            <ShieldAlert className={`w-5 h-5 shrink-0 ${qColor.split(' ')[0]}`} />
-                           <span className="text-slate-300 text-sm font-medium text-left">{e}</span>
+                           <span className="text-slate-300 text-sm font-medium">{e}</span>
                         </div>
                      ))}
                   </div>
@@ -595,14 +592,14 @@ const ResultsView: React.FC<{
          {/* ROW 2: RADAR DE RISCO (SIDE BY SIDE) */}
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             
-            {/* Visual do Radar - Mobile Optimized aspect ratio */}
-            <div className="bg-slate-900/40 border border-white/10 rounded-3xl p-4 md:p-8 flex flex-col items-center justify-center relative aspect-square md:aspect-[4/3]">
-               <div className="absolute top-4 left-4 md:top-6 md:left-6 flex items-center gap-2">
+            {/* Visual do Radar */}
+            <div className="bg-slate-900/40 border border-white/10 rounded-3xl p-8 flex flex-col items-center justify-center relative aspect-[4/3]">
+               <div className="absolute top-6 left-6 flex items-center gap-2">
                   <Activity className="w-4 h-4 text-indigo-500" />
                   <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">Radar de Saúde (0-10)</span>
                </div>
                
-               <div className="w-full h-full max-w-[300px] md:max-w-[350px] relative mt-6 md:mt-0">
+               <div className="w-full h-full max-w-[350px] max-h-[350px] relative">
                   <svg viewBox="-20 -20 140 140" className="w-full h-full overflow-visible">
                      {/* Background Grid */}
                      <polygon points="50,10 90,50 50,90 10,50" fill="#1e293b" fillOpacity="0.2" stroke="#334155" strokeWidth="0.5" />
@@ -672,39 +669,39 @@ const ResultsView: React.FC<{
                 <div className="p-2 bg-red-500/10 rounded border border-red-500/20">
                    <Target className="w-5 h-5 text-red-500" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-tight">Plano de Guerra: Elo Mais Fraco</h3>
+                <h3 className="text-2xl font-bold text-white uppercase tracking-tight">Plano de Guerra: Elo Mais Fraco</h3>
              </div>
 
              <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl relative">
                 <div className="absolute top-0 left-0 w-2 h-full bg-red-600"></div>
                 
-                <div className="p-6 md:p-8 border-b border-slate-800 bg-red-900/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div className="p-8 border-b border-slate-800 bg-red-900/5 flex justify-between items-center">
                    <div>
                       <p className="text-xs text-red-400 font-mono uppercase tracking-widest mb-2">Foco Imediato (Prioridade 0)</p>
-                      <h4 className="text-2xl md:text-3xl font-bold text-white">
+                      <h4 className="text-3xl font-bold text-white">
                          Resgatar Pilar: <span className="text-red-500">{worst.label}</span>
                       </h4>
                    </div>
-                   <div className="text-right self-end md:self-auto">
-                      <span className="text-4xl md:text-5xl font-mono font-black text-red-500">{worst.score.toFixed(1)}</span>
+                   <div className="text-right">
+                      <span className="text-5xl font-mono font-black text-red-500">{worst.score.toFixed(1)}</span>
                       <span className="text-xs text-slate-500 block">/ 10.0</span>
                    </div>
                 </div>
 
                 <div className="divide-y divide-slate-800">
                    {warPlan.map((action, idx) => (
-                      <div key={idx} className="p-5 md:p-6 flex gap-4 md:gap-5 hover:bg-slate-800/30 transition-colors">
-                         <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 font-mono font-bold shrink-0 text-sm md:text-base">
+                      <div key={idx} className="p-6 flex gap-5 hover:bg-slate-800/30 transition-colors">
+                         <div className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 font-mono font-bold shrink-0">
                             {idx + 1}
                          </div>
-                         <p className="text-slate-200 text-sm md:text-lg leading-relaxed">{action}</p>
+                         <p className="text-slate-200 text-lg leading-relaxed">{action}</p>
                       </div>
                    ))}
                 </div>
 
                 <div className="bg-slate-950 p-6 flex items-start gap-4">
                    <BrainCircuit className="w-5 h-5 text-indigo-500 mt-1 shrink-0" />
-                   <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-mono">
+                   <p className="text-sm text-slate-400 leading-relaxed font-mono">
                       <strong className="text-indigo-400">Nota do Sistema:</strong> Empresários costumam acelerar esse tipo de correção com mentoria estruturada. Tentar implementar sozinho sem método aumenta o risco de inércia em 60%.
                    </p>
                 </div>
@@ -718,14 +715,14 @@ const ResultsView: React.FC<{
                   <div className="flex justify-center mb-4"><Check className="w-12 h-12 text-emerald-500" /></div>
                   <h3 className="text-2xl font-bold text-white mb-2">Diagnóstico Concluído</h3>
                   <p className="text-slate-400 mb-6">Mantenha esta tela aberta. O apresentador continuará em breve.</p>
-                  <button className="px-8 py-3 bg-slate-800 text-slate-500 cursor-not-allowed rounded font-mono uppercase text-sm w-full md:w-auto">
+                  <button className="px-8 py-3 bg-slate-800 text-slate-500 cursor-not-allowed rounded font-mono uppercase text-sm">
                      Aguardando Apresentador...
                   </button>
                </div>
             ) : (
                <button 
                   onClick={onFinish}
-                  className="group relative inline-flex items-center justify-center gap-4 px-12 py-6 bg-slate-900 border border-slate-700 hover:border-indigo-500 text-white rounded-sm transition-all duration-300 hover:bg-slate-800 shadow-[0_0_50px_rgba(79,70,229,0.3)] w-full md:w-auto"
+                  className="group relative inline-flex items-center gap-4 px-12 py-6 bg-slate-900 border border-slate-700 hover:border-indigo-500 text-white rounded-sm transition-all duration-300 hover:bg-slate-800 shadow-[0_0_50px_rgba(79,70,229,0.3)]"
                >
                   <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
                   <span className="font-mono uppercase tracking-widest text-lg md:text-xl">Avançar no Workshop</span>

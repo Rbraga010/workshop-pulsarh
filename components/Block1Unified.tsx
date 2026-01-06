@@ -113,10 +113,11 @@ export const Block1Unified: React.FC<Block1UnifiedProps> = ({ onNextBlock }) => 
     setActiveRiskId(activeRiskId === id ? null : id);
   };
 
-  // Generate URL for QR Code (Direct link to Block 2)
+  // Generate URL for QR Code (Direct link to Block 2 with Participant Mode)
   const getParticipantUrl = () => {
     const baseUrl = window.location.origin + window.location.pathname;
-    return `${baseUrl}?block=2`;
+    // CRITICAL UPDATE: Add &mode=participant to lock the user in Block 2
+    return `${baseUrl}?block=2&mode=participant`;
   };
 
   return (
@@ -425,25 +426,25 @@ export const Block1Unified: React.FC<Block1UnifiedProps> = ({ onNextBlock }) => 
                      <span className="text-xs font-mono text-indigo-200 tracking-widest uppercase">Fim do Módulo 1</span>
                   </div>
 
-                  <h2 className="text-3xl md:text-6xl font-black text-white mb-10 tracking-tight leading-tight font-sans">
+                  <h2 className="text-4xl md:text-6xl font-black text-white mb-10 tracking-tight leading-tight font-sans">
                     Agora a pergunta <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400">INEVITÁVEL</span>:
                   </h2>
                   
-                  <p className="text-lg md:text-3xl text-slate-300 font-light mb-16 leading-normal font-sans">
+                  <p className="text-xl md:text-3xl text-slate-300 font-light mb-16 leading-normal font-sans">
                     Como seus líderes estão sendo <br className="hidden md:block" /> formados hoje — na prática?
                     <br />
-                    <span className="font-bold text-white block mt-6 text-xl md:text-4xl">Você tem método… ou tem sorte?</span>
+                    <span className="font-bold text-white block mt-6 text-2xl md:text-4xl">Você tem método… ou tem sorte?</span>
                   </p>
 
                   <div className="flex flex-col items-center gap-8">
                     {/* STANDARD TECH BUTTON STYLE */}
                     <button 
                       onClick={() => setShowQR(true)}
-                      className="group relative inline-flex items-center gap-4 px-12 py-6 bg-slate-900 border border-slate-700 hover:border-indigo-500 text-white rounded-sm transition-all duration-300 hover:bg-slate-800 shadow-2xl w-full md:w-auto justify-center"
+                      className="group relative inline-flex items-center gap-4 px-12 py-6 bg-slate-900 border border-slate-700 hover:border-indigo-500 text-white rounded-sm transition-all duration-300 hover:bg-slate-800 shadow-2xl"
                     >
                        <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
-                       <span className="font-mono uppercase tracking-widest text-base md:text-xl">Quero fazer o diagnóstico</span>
+                       <span className="font-mono uppercase tracking-widest text-lg md:text-xl">Quero fazer o diagnóstico (Módulo 2)</span>
                        <ArrowRight className="w-6 h-6 text-slate-500 group-hover:text-white transition-colors" />
                        
                        {/* Corner Accents */}
@@ -451,7 +452,7 @@ export const Block1Unified: React.FC<Block1UnifiedProps> = ({ onNextBlock }) => 
                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/20"></div>
                     </button>
                     
-                    <p className="text-sm md:text-base text-slate-500 max-w-md font-medium font-sans">
+                    <p className="text-base text-slate-500 max-w-md font-medium font-sans">
                       No Módulo 2, você vai responder um diagnóstico rápido e visualizar sua empresa numa matriz de risco 4 quadrantes.
                     </p>
 

@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
           <div className="hidden md:block absolute -left-12 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-slate-700 to-transparent"></div>
           <div className="hidden md:block absolute -right-12 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-slate-700 to-transparent"></div>
 
-          <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] uppercase font-sans">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] uppercase font-sans">
             <span className="block text-slate-100 opacity-90">Liderança Despreparada</span>
             <span className="block text-slate-500 font-light">Não é só problema de clima.</span>
             
@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
         </div>
 
         <div className="max-w-3xl mx-auto mb-16 space-y-4 animate-slide-up" style={{ animationDelay: '200ms' }}>
-          <p className="text-base md:text-xl text-slate-400 leading-relaxed font-light border-l-2 border-indigo-500/30 pl-6 text-left md:text-center md:border-l-0 md:pl-0 font-sans">
+          <p className="text-lg md:text-xl text-slate-400 leading-relaxed font-light border-l-2 border-indigo-500/30 pl-6 text-left md:text-center md:border-l-0 md:pl-0 font-sans">
             O mercado já provou isso com dados. Agora você vai enxergar como a forma atual de formar líderes gera riscos silenciosos — <strong className="text-white font-medium">mesmo com bons resultados aparentes.</strong>
           </p>
         </div>
@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
           {/* Tech Button */}
           <button 
             onClick={scrollToContent}
-            className="group relative inline-flex items-center gap-4 px-8 py-4 bg-slate-900 border border-slate-700 hover:border-indigo-500 text-white rounded-sm transition-all duration-300 hover:bg-slate-800 w-full md:w-auto justify-center"
+            className="group relative inline-flex items-center gap-4 px-8 py-4 bg-slate-900 border border-slate-700 hover:border-indigo-500 text-white rounded-sm transition-all duration-300 hover:bg-slate-800"
           >
              <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
              <span className="font-mono uppercase tracking-widest text-sm">Iniciar Análise de Cenário</span>
