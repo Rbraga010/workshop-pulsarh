@@ -637,11 +637,11 @@ export const Block3: React.FC<Block3Props> = ({ onNextBlock }) => {
 
 // --- SUB-COMPONENTS FOR INTERACTIVITY ---
 
-const ArrowDownSimple = ({ className }: { className?: string }) => (
+const ArrowDownSimple: React.FC<{ className?: string }> = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
 );
 
-const PillarItem = ({ step, color }: { step: any, color: string }) => {
+const PillarItem: React.FC<{ step: any; color: string }> = ({ step, color }) => {
   const [isOpen, setIsOpen] = useState(false);
   const letterColor = color === 'emerald' ? 'text-emerald-400 bg-emerald-900/20 border-emerald-500/30' : 'text-slate-400';
   const textColor = color === 'emerald' ? 'text-emerald-100' : 'text-slate-100';
@@ -692,7 +692,7 @@ const PillarItem = ({ step, color }: { step: any, color: string }) => {
   );
 };
 
-const LhaItem = ({ item }: { item: any }) => {
+const LhaItem: React.FC<{ item: any }> = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
@@ -738,7 +738,7 @@ const LhaItem = ({ item }: { item: any }) => {
   );
 };
 
-const ManagementItem = ({ item }: { item: any }) => {
+const ManagementItem: React.FC<{ item: any }> = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
   const Icon = item.icon;
 
