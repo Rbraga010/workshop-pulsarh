@@ -157,7 +157,7 @@ export const Block1Unified: React.FC<Block1UnifiedProps> = ({ onNextBlock }) => 
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/10 rounded-full border border-indigo-500/30 text-indigo-300 text-[10px] font-mono uppercase tracking-wider mb-2">
                        <Network className="w-3 h-3" /> Fatos Externos
                     </div>
-                    <h2 className={`font-bold text-white leading-tight transition-all duration-500 ${activePanel === 'market' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-3xl'}`}>
+                    <h2 className={`font-bold text-white leading-tight transition-all duration-500 ${activePanel === 'market' ? 'text-2xl md:text-5xl' : 'text-xl md:text-3xl'}`}>
                        Dados de <br/> Mercado
                     </h2>
                  </div>
@@ -206,7 +206,7 @@ export const Block1Unified: React.FC<Block1UnifiedProps> = ({ onNextBlock }) => 
                            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isActive ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
                               <div className="px-5 pb-5 pl-16 pt-2">
                                  <p className="text-[10px] text-slate-500 font-mono uppercase mb-3">Fonte: {point.source}</p>
-                                 <p className="text-lg md:text-xl text-white leading-relaxed border-l-4 border-indigo-500 pl-6 font-medium animate-slide-up shadow-sm">
+                                 <p className="text-sm md:text-xl text-white leading-relaxed border-l-4 border-indigo-500 pl-6 font-medium animate-slide-up shadow-sm">
                                     {point.description}
                                  </p>
                               </div>
@@ -273,7 +273,7 @@ export const Block1Unified: React.FC<Block1UnifiedProps> = ({ onNextBlock }) => 
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-500/10 rounded-full border border-red-500/30 text-red-300 text-[10px] font-mono uppercase tracking-wider mb-2">
                        <AlertTriangle className="w-3 h-3" /> Impactos Internos
                     </div>
-                    <h2 className={`font-bold text-white leading-tight transition-all duration-500 ${activePanel === 'risks' ? 'text-3xl md:text-5xl' : 'text-2xl md:text-3xl'}`}>
+                    <h2 className={`font-bold text-white leading-tight transition-all duration-500 ${activePanel === 'risks' ? 'text-2xl md:text-5xl' : 'text-xl md:text-3xl'}`}>
                        Riscos Reais <br/> da Empresa
                     </h2>
                  </div>
@@ -425,25 +425,25 @@ export const Block1Unified: React.FC<Block1UnifiedProps> = ({ onNextBlock }) => 
                      <span className="text-xs font-mono text-indigo-200 tracking-widest uppercase">Fim do Módulo 1</span>
                   </div>
 
-                  <h2 className="text-4xl md:text-6xl font-black text-white mb-10 tracking-tight leading-tight font-sans">
+                  <h2 className="text-3xl md:text-6xl font-black text-white mb-10 tracking-tight leading-tight font-sans">
                     Agora a pergunta <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400">INEVITÁVEL</span>:
                   </h2>
                   
-                  <p className="text-xl md:text-3xl text-slate-300 font-light mb-16 leading-normal font-sans">
+                  <p className="text-lg md:text-3xl text-slate-300 font-light mb-16 leading-normal font-sans">
                     Como seus líderes estão sendo <br className="hidden md:block" /> formados hoje — na prática?
                     <br />
-                    <span className="font-bold text-white block mt-6 text-2xl md:text-4xl">Você tem método… ou tem sorte?</span>
+                    <span className="font-bold text-white block mt-6 text-xl md:text-4xl">Você tem método… ou tem sorte?</span>
                   </p>
 
                   <div className="flex flex-col items-center gap-8">
                     {/* STANDARD TECH BUTTON STYLE */}
                     <button 
                       onClick={() => setShowQR(true)}
-                      className="group relative inline-flex items-center gap-4 px-12 py-6 bg-slate-900 border border-slate-700 hover:border-indigo-500 text-white rounded-sm transition-all duration-300 hover:bg-slate-800 shadow-2xl"
+                      className="group relative inline-flex items-center gap-4 px-12 py-6 bg-slate-900 border border-slate-700 hover:border-indigo-500 text-white rounded-sm transition-all duration-300 hover:bg-slate-800 shadow-2xl w-full md:w-auto justify-center"
                     >
                        <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
-                       <span className="font-mono uppercase tracking-widest text-lg md:text-xl">Quero fazer o diagnóstico (Módulo 2)</span>
+                       <span className="font-mono uppercase tracking-widest text-base md:text-xl">Quero fazer o diagnóstico</span>
                        <ArrowRight className="w-6 h-6 text-slate-500 group-hover:text-white transition-colors" />
                        
                        {/* Corner Accents */}
@@ -451,7 +451,7 @@ export const Block1Unified: React.FC<Block1UnifiedProps> = ({ onNextBlock }) => 
                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/20"></div>
                     </button>
                     
-                    <p className="text-base text-slate-500 max-w-md font-medium font-sans">
+                    <p className="text-sm md:text-base text-slate-500 max-w-md font-medium font-sans">
                       No Módulo 2, você vai responder um diagnóstico rápido e visualizar sua empresa numa matriz de risco 4 quadrantes.
                     </p>
 
